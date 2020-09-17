@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <b-navbar toggleable="lg" type="dark" variant="warning">
       <b-navbar-brand href="#">
         <img src="https://http2.mlstatic.com/storage/developers-site-cms-admin/322394706358-logo--small-v2.png" width="60px" alt=""/>
@@ -17,25 +16,10 @@
 
   <router-view/>
 
-=======
-    <nav class="navbar navbar-dark bg-yellow">
-      <a class="navbar-brand text-dark h1" href="#">
-        <img src="https://http2.mlstatic.com/storage/developers-site-cms-admin/322394706358-logo--small-v2.png" class="d-inline-block align-top" alt="">
-        Jerónimo Shopping
-      </a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="value">
-        <button class="button-anon-pen" type="submit" @click="getItem">Search</button>
-      </form>
-    </nav>
-
-    <ListItems :object= 'info'/>
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import Axios from 'axios'
 import ListItems from './components/ListItems.vue'
 
@@ -51,32 +35,11 @@ export default {
   components: {
     ListItems
       },
-=======
-import ListItems from './components/ListItems.vue'
-import Axios from 'axios'
-
-export default {
-  name: 'App',
-  data(){
-    return{
-      info: [],
-      value: "cat"
-    }
-  },
-    components: {
-    ListItems
-  },
-  mounted () {
-    Axios.get(`https://api.mercadolibre.com/sites/MCO/search?q=${this.value}`)
-      .then(response => (this.info = response.data.results))
-  },
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
   methods:{
     getItem(e) {
         e.preventDefault();
         Axios.get(`https://api.mercadolibre.com/sites/MCO/search?q=${this.value}`)
         .then(response => (this.info = response.data.results))
-<<<<<<< HEAD
     },
 
     nombrevendedor: function(identificacion){
@@ -89,27 +52,15 @@ export default {
       return  this.nombrev[0].toString()
     }
   }
-=======
-    }
-  }
-
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
 }
 </script>
 
 <style>
 #app {
-<<<<<<< HEAD
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   text-align: center;
-=======
-  background: #FFE600;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
   margin-top: 0px;
 }
 .button-anon-pen{
@@ -176,9 +127,6 @@ export default {
 		background-image: linear-gradient(115deg, #12bcfe, #4fcf70, #fad648, #a767e5)
 	}
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
 </style>
