@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "mercadosearch",
-=======
-  "name": "mlappvue",
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,24 +9,16 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-<<<<<<< HEAD
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
     "vue-router": "^3.2.0"
-=======
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
-<<<<<<< HEAD
     "@vue/cli-plugin-router": "~4.5.0",
-=======
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
@@ -48,12 +36,8 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-<<<<<<< HEAD
     },
     "rules": {}
-=======
-    }
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
   },
   "browserslist": [
     "> 1%",
