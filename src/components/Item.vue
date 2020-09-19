@@ -1,9 +1,9 @@
 <template>
 <b-row class="mt-4" >
     <b-col cols="12" md="4">
-      <div >
+      <div>
         <router-link :to="{ name: 'ItemDetail', params: { Id: itemId }}">
-          <b-card  
+          <b-card   
           img-top
           :img-src= "imgUrl"
           text-variant="black"

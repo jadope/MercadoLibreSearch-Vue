@@ -9,7 +9,7 @@
         
         <h1 id="titulo">{{item.title}} </h1>
         <div id="infoProduct">
-            <img  :src="photos[0].url">
+            <img  :src="photos[0].url"> 
             <h3>Precio: ${{item.price}}</h3>
             <h3>Estado: {{item.condition}}</h3>
             <h3>{{item.warranty}}</h3>
