@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       info:[],
-      value:"",
+      value: null || "",
       }
     },
   components:{
