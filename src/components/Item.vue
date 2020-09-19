@@ -1,30 +1,37 @@
 <template>
 <b-row class="mt-4" >
     <b-col cols="12" md="4">
-        <b-card  
-        img-top
-        :img-src= "imgUrl"
-        text-variant="black"
-        :title = "title"
-        >
+      <div >
+        <router-link :to="{ name: 'ItemDetail', params: { Id: itemId }}">
+          <b-card  
+          img-top
+          :img-src= "imgUrl"
+          text-variant="black"
+          :title = "title"
+          >
+            <b-card-text>
+                <p>Precio: ${{price}} <br> La ID del vendedor es: {{sellerId}} </p>
+            </b-card-text>
+            
+          </b-card>
+          </router-link>
+          <router-view/>
         
-        <b-card-text>
-            <p>Precio: ${{price}} <br> La ID del vendedor es: {{sellerId}} </p>
-        </b-card-text>
-    </b-card>
+      </div>
     </b-col>
 </b-row>
 </template>
 
 <script>
 export default {
-  name: "Item",
+  name: "Items",
   props: {
     title: String,
     price: Number,
     imgUrl: String,
-    sellerId: Number
-  }
+    sellerId: Number,
+    itemId: String
+  },
 };
 </script>
 
