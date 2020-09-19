@@ -28,25 +28,31 @@
       id="centered"
     ></Items>
 
-<nav aria-label="Page navigation example" id="pag">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>  
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>  </div>
+    <div id="pag">
+      <nav aria-label="Page navigation example" id="pagination">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" v-on:click="previouspage">Previous</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link">{{page-1}}</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">
+              {{page}}
+              <span class="sr-only"></span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link">{{page+1}}</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" v-on:click="nextpage">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </template>
 
 
@@ -60,6 +66,8 @@ export default {
     return {
       info: [],
       value: null || "",
+      page: 1,
+      offset: 0,
     };
   },
   components: {
@@ -69,14 +77,28 @@ export default {
   props: ["object"],
 
   methods: {
-    getItem(e) {
-      e.preventDefault();
+    getItem() {
       Axios.get(
-        `https://api.mercadolibre.com/sites/MCO/search?q=${this.value}`
+        `https://api.mercadolibre.com/sites/MCO/search?q=${this.value}&offset=${this.offset}`
       ).then((response) => {
         this.info = response.data.results;
       });
     },
+
+    nextpage() { //Acá me falta validar que cuando llegue al límite en item.paging.total, deje de subir. 
+      this.page = this.page + 1;
+      this.offset = this.offset + 50;
+      this.getItem();
+    },
+
+    previouspage() {
+      if (this.page > 1) {
+        this.offset = this.offset - 50;
+        this.page = this.page - 1;
+        this.getItem();
+      }
+    },
+
     //   sellerName: function(id){
     //     Axios.get(`https://api.mercadolibre.com/users/${id}`)
     //     .then(response => {
@@ -94,13 +116,14 @@ export default {
 #navbarr {
   background-color: #ffe600;
 }
-#centered{
+#centered {
   display: flex;
-    margin-left: 40%;}
+  margin-left: 40%;
+}
 
-
-#pag{
-    list-style: none;
-    padding-top: 30px;
-    margin-left: 45%;}
-        </style>
+#pag {
+  list-style: none;
+  padding-top: 30px;
+  margin-left: 45%;
+}
+</style>
