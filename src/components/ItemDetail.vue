@@ -1,7 +1,11 @@
 <template>
     <div>
-        <h1>This is an about page</h1>
-
+        <b-navbar toggleable="lg" type="dark" id="navbarr">
+            <b-navbar-brand href="/">
+                <img src="https://http2.mlstatic.com/storage/developers-site-cms-admin/322394706358-logo--small-v2.png" width="60px" alt=""/>
+                Jerónimo's  Shopping
+            </b-navbar-brand>
+        </b-navbar>
     </div>
 </template>
 
@@ -11,6 +15,8 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-
+<style >
+    #navbarr{
+        background-color: #FFE600;
+    }
 </style>
