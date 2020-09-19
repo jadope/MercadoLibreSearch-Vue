@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="warning">
-      <b-navbar-brand href="#">
+      <b-navbar-brand href="/">
         <img src="https://http2.mlstatic.com/storage/developers-site-cms-admin/322394706358-logo--small-v2.png" width="60px" alt=""/>
         Jerónimo Shopping
       </b-navbar-brand>
@@ -12,7 +12,7 @@
         </b-nav-form>
       </b-navbar-nav>
     </b-navbar>
-    <ListItems :object= 'info' :method="nombrevendedor" />
+    <ListItems :object= 'info'/>
 
   <router-view/>
 
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       info:[],
-      value:""
+      value:"",
     }
 
   },
@@ -38,19 +38,12 @@ export default {
   methods:{
     getItem(e) {
         e.preventDefault();
-        Axios.get(`https://api.mercadolibre.com/sites/MCO/search?q=${this.value}`)
-        .then(response => (this.info = response.data.results))
+        Axios.get(`https://api.mercadolibre.com/sites/MCO/search?q=${this.value}&limit=5`)
+        .then(response => {
+          this.info = response.data.results;
+        })
     },
 
-    nombrevendedor: function(identificacion){
-      this.$http
-      .get(`https://api.mercadolibre.com/users/${identificacion}`)
-      .then(resp => {
-        this.usuarioid=resp.body['nickname'];
-        this.nombrev[0]=this.usuarioid;        
-      })
-      return  this.nombrev[0].toString()
-    }
   }
 }
 </script>

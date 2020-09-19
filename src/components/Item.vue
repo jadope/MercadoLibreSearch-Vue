@@ -4,29 +4,26 @@
         <b-card  
         img-top
         :img-src= "imgUrl"
-        img-alt="Imagen relacionada a tu búsqueda"
         text-variant="black"
         :title = "title"
         >
         
         <b-card-text>
-            <p>Precio: ${{price}} <br> ID del vendedor: {{seller}}</p>
+            <p>Precio: ${{price}} <br> La ID del vendedor es: {{sellerId}} </p>
         </b-card-text>
     </b-card>
     </b-col>
 </b-row>
-
 </template>
+
 <script>
 export default {
-  name: "Items",
+  name: "Item",
   props: {
     title: String,
     price: Number,
     imgUrl: String,
-    seller: Number,
-    linkSeller: String
-
+    sellerId: Number
   }
 };
 </script>

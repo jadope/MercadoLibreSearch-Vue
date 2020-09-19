@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # mercadosearch
-=======
-# mlappvue
->>>>>>> b0376dc41af5a6087358bdaccd4c3534c16fab00
 
 ## Project setup
 ```

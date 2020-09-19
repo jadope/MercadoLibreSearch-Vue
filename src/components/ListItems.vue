@@ -1,27 +1,36 @@
 <template>
     <div class="list-group">
-        <Items 
-        :key="item.id" 
-        v-for="item in object" 
+        <Items v-for="(item, index) in object"
+        :key="index"  
         :title="item.title" 
         :price="item.price" 
-        :imgUrl="item.thumbnail" 
-        :seller="item.seller.id">
+        :imgUrl="item.thumbnail"
+        :sellerId="item.seller.id" 
+        >
         </Items>
     </div>
 </template>
 
 
 <script>
+//import Axios from 'axios'
 import Items from './Item.vue'
 export default {
-name: 'ListItems',
-props: {
-    object: []
-  },
+  name: 'ListItems',
+  props: ['object'],
   components: {
     Items
-  },
+  }
+  // methods:{
+  //   sellerName: function(id){
+  //     Axios.get(`https://api.mercadolibre.com/users/${id}`)
+  //     .then(response => {
+  //       this.userId=response.data.nickname
+  //       console.log(this.userId)        
+  //     })
+  //     return this.userId
+  //   }
+  // }  
 }
 </script>
 
